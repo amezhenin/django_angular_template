@@ -1,23 +1,28 @@
 var gulp = require('gulp');
 var inject = require('gulp-inject');
+var mainBowerFiles = require('main-bower-files');
+var series = require('stream-series');
 
 
 gulp.task('default', function () {
   // place code for your default task here
+  console.log(mainBowerFiles())
 });
 
 
 gulp.task('index', function () {
   var target = gulp.src('./static/index.html');
-  // It's not necessary to read the files (will speed up things), we're only after their paths: 
+
+  var vendor = gulp.src(mainBowerFiles(), {read: false})
+
   var sources = gulp.src([
-    './static/bower_components/**/*.min.js',
     './static/app/services/*.js',
     './static/app/controllers/**/*.js',
     './static/app/*.js',
     './static/app/**/*.css'
   ], {read: false});
 
-  return target.pipe(inject(sources))
+  return target
+    .pipe(inject(series(vendor, sources)))
     .pipe(gulp.dest('./static'));
 });
