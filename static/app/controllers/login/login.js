@@ -2,10 +2,10 @@
 
 angular.module('XYZ.login', [
   'ui.router',
-  'ui.bootstrap',
-  'angularMoment'
+  'ui.bootstrap'
 ]).controller('LoginCtrl', function ($scope) {
     $scope.message = {
-      time: new Date()
+      time: new Date(),
+      text: "This is login"
     };
   });

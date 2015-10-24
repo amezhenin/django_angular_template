@@ -1,0 +1,19 @@
+{
+  "name": "django_angular_template",
+  "version": "1.0.0",
+  "homepage": "https://github.com/amezhenin/django_angular_template",
+  "authors": [
+    "Artem Mezhenin <a.mezhenin@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angularjs": "~1.4.7"
+  }
+}
