@@ -1,8 +1,11 @@
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 
 # Create your views here.
 
 def home(req):
-    return HttpResponse("Hello")
+    return JsonResponse({
+        "message": "Hello",
+        "data": list(range(5))
+    })
 
 
