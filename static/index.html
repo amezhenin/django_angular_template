@@ -3,15 +3,22 @@
 <head>
   <title>My index</title>
   <!-- inject:css -->
+  <link rel="stylesheet" href="/static/app/controllers/login/login.css">
+  <link rel="stylesheet" href="/static/app/controllers/navbar/navbar.css">
+  <link rel="stylesheet" href="/static/app/main.css">
   <!-- endinject -->
 </head>
 <body ng-app="XYZ">
 
+  <div ng-include="'controllers/navbar/navbar.html'"></div>
   <div id="main-container" ui-view=""></div>
 
   <!-- inject:js -->
-  <script src="/static/bower_components/angularjs/angular.js"></script>
+  <script src="/static/bower_components/angular/angular.js"></script>
+  <script src="/static/bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+  <script src="/static/bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
   <script src="/static/app/controllers/login/login.js"></script>
+  <script src="/static/app/controllers/navbar/navbar.js"></script>
   <script src="/static/app/app.js"></script>
   <!-- endinject -->
 </body>
