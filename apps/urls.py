@@ -13,12 +13,30 @@ Including another URLconf
     1. Add an import:  from blog import urls as blog_urls
     2. Add a URL to urlpatterns:  url(r'^blog/', include(blog_urls))
 """
+import os
+
 from django.conf.urls import include, url
 from django.contrib import admin
+from django.http import HttpResponse, Http404
+from django.conf import settings
 
 import api.urls
 
+
+def index_html(req):
+    """
+    Serve index.html with AngularJS app to all requests(like /login, /dashboard, etc.)
+    """
+    if req.path.startswith('/admin') or req.path.startswith('/api'):
+        raise Http404()
+
+    filename = os.path.join(settings.BASE_DIR, 'static', 'index.html')
+    with open(filename) as fd:
+        return HttpResponse(fd.read())
+
+
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^api/', include(api.urls))
+    url(r'^api/', include(api.urls)),
+    url(r'^.*$', index_html, name='index_html')
 ]

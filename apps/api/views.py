@@ -8,4 +8,3 @@ def home(req):
         "data": list(range(5))
     })
 
-
