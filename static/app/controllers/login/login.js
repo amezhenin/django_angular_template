@@ -8,7 +8,7 @@ angular.module('XYZ.login', [
     $stateProvider
       .state('login', {
         url: '/login',
-        templateUrl: 'app/controllers/login/login.html',
+        templateUrl: 'static/app/controllers/login/login.html',
         controller: 'LoginCtrl'
       });
   })

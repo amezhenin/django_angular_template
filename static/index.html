@@ -3,6 +3,7 @@
 <head>
   <title>My index</title>
   <!-- inject:css -->
+  <link rel="stylesheet" href="/static/app/controllers/dashboard/dashboard.css">
   <link rel="stylesheet" href="/static/app/controllers/login/login.css">
   <link rel="stylesheet" href="/static/app/controllers/navbar/navbar.css">
   <link rel="stylesheet" href="/static/app/main.css">
@@ -10,13 +11,17 @@
 </head>
 <body ng-app="XYZ">
 
-  <div ng-include="'controllers/navbar/navbar.html'"></div>
+  <div ng-include="'static/app/controllers/navbar/navbar.html'"></div>
   <div id="main-container" ui-view=""></div>
+  <a ui-sref="login">To Login</a>
+  <a ui-sref="dashboard">To Dashboard</a>
+
 
   <!-- inject:js -->
   <script src="/static/bower_components/angular/angular.js"></script>
   <script src="/static/bower_components/angular-ui-router/release/angular-ui-router.js"></script>
   <script src="/static/bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+  <script src="/static/app/controllers/dashboard/dashboard.js"></script>
   <script src="/static/app/controllers/login/login.js"></script>
   <script src="/static/app/controllers/navbar/navbar.js"></script>
   <script src="/static/app/app.js"></script>

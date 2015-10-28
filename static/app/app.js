@@ -2,7 +2,7 @@
 
 angular.module('XYZ', [
   'XYZ.login',
-  //'XYZ.dashboard',
+  'XYZ.dashboard',
   'XYZ.navbar'
   //'XYZ.constants'
 ])
@@ -10,7 +10,11 @@ angular.module('XYZ', [
     $urlRouterProvider
       .otherwise('/login');
 
-    $locationProvider.html5Mode(true);
+    $locationProvider.html5Mode({
+      enabled: true,
+      requireBase: false
+    });
+
 
     // turn on $log.debug, when we are in local/dev environment
     //$logProvider.debugEnabled(DEV_SERVER);
