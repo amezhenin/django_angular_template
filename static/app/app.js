@@ -3,19 +3,22 @@
 angular.module('XYZ', [
   'XYZ.login',
   'XYZ.dashboard',
-  'XYZ.navbar'
+  'XYZ.navbar',
+  'XYZ.authService'
   //'XYZ.constants'
 ])
-  .config(function ($stateProvider, $urlRouterProvider, $locationProvider, $logProvider) {
-    $urlRouterProvider
-      .otherwise('/login');
+  .config(['$urlRouterProvider', '$locationProvider', '$httpProvider',
+    function ($urlRouterProvider, $locationProvider, $httpProvider) {
+      $urlRouterProvider.otherwise('/login');
 
-    $locationProvider.html5Mode({
-      enabled: true,
-      requireBase: false
-    });
+      $locationProvider.html5Mode({
+        enabled: true,
+        requireBase: true
+      });
 
+      $httpProvider.defaults.xsrfCookieName = 'csrftoken';
+      $httpProvider.defaults.xsrfHeaderName = 'X-CSRFToken';
 
-    // turn on $log.debug, when we are in local/dev environment
-    //$logProvider.debugEnabled(DEV_SERVER);
-  });
+      // turn on $log.debug, when we are in local/dev environment
+      // $logProvider.debugEnabled(DEV_SERVER);
+    }]);

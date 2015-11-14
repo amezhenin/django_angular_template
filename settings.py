@@ -39,7 +39,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'apps.api'
+    'api'
 )
 
 MIDDLEWARE_CLASSES = (
@@ -111,3 +111,10 @@ try:
     from settings_local import *
 except ImportError:
     pass
+
+
+if filter(lambda x: "pytest" in x or "py.test" in x, sys.argv):
+    DATABASES['default'] = {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': 'test'
+    }

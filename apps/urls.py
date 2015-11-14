@@ -36,7 +36,7 @@ def index_html(req):
 
 
 urlpatterns = [
-    url(r'^admin/', include(admin.site.urls)),
+    url(r'^admin', include(admin.site.urls)),
     url(r'^api/', include(api.urls)),
     url(r'^.*$', index_html, name='index_html')
 ]

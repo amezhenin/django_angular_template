@@ -1,18 +1,19 @@
 {
-  "name": "bayer_portal",
+  "name": "django_angular_template",
   "version": "1.0.0",
-  "description": "Bayer Portal",
+  "description": "django_angular_template",
   "main": "gulpfile.js",
   "dependencies": {},
   "devDependencies": {
     "gulp": "^3.9.0",
+    "gulp-autoprefixer": "^3.1.0",
     "gulp-inject": "^3.0.0",
     "main-bower-files": "^2.9.0",
+    "run-sequence": "^1.1.4",
     "stream-series": "^0.1.1"
   },
   "engines": {
     "node": ">=0.10.0"
   },
-  "private": true,
-  "author": ""
+  "author": "Artem Mezhenin <a.mezhenin@gmail.com>"
 }
